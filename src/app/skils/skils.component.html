@@ -1,0 +1,14 @@
+<div>
+  <ul>
+    <li *ngFor="let skill of skills" class="w-25 d-flex justify-content-between m-1">
+      <!-- adding params to routerLink -->
+      {{ skill.name }}
+      <a [routerLink]="['/skills', skill.id]" class="btn btn-info"> Détail </a>
+      <!--routerLink="/skills/{{skill.id}}"-->
+    </li>
+  </ul>
+</div>
+<div>
+  <a routerLink="skills">Skills</a>
+</div>
+<button (click)="loadSkills()" class="btn btn-primary">Reload skills</button>

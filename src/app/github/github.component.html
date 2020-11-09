@@ -1,0 +1,15 @@
+
+<section>
+    <div class="card" style="width: 18rem;">
+        <img src="{{codintag.avatar_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{codintag.name}} ({{codintag.login}})</h5>
+          <p class="card-text">{{codintag.bio}}</p>
+          <a href="https://github.com/codintag" target="_blank" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      <div>
+          <!-- it's important to put "/" in front of your path else if it was notfound and the will be /github/blog instead of /blog-->
+          <a routerLink="/blog">Go to Blog</a>
+      </div>
+</section>
