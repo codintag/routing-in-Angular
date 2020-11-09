@@ -9,15 +9,29 @@ import { BlogComponent } from "./blog/blog.component";
 import { SkilsComponent } from "./skils/skils.component";
 import { GithubComponent } from "./github/github.component";
 import { NotfoundComponent } from "./notfound/notfound.component";
-import { HttpClientModule } from '@angular/common/http';
-import { SkillComponent } from './skils/skill/skill.component';
+import { HttpClientModule } from "@angular/common/http";
+import { SkillComponent } from "./skils/skill/skill.component";
+import { EditSkillComponent } from "./skils/edit-skill/edit-skill.component";
+import { UsersComponent } from "./users/users.component";
+import { UserComponent } from "./users/user/user.component";
 
-// all my routes here stored in const 
+// all my routes here stored in const
 const appRoutes: Routes = [
   { path: "", component: HomeComponent }, // localhost:4200
   { path: "blog", component: BlogComponent },
-  { path: "skills", component: SkilsComponent },
-  { path: "skills/:id", component: SkillComponent }, // id paramater
+  {
+    path: "skills",
+    component: SkilsComponent,
+    children: [ // nested Routes
+      { path: ":id", component: SkillComponent }, // id paramater and no need todefine "skills/:id"..
+      { path: ":id/edit", component: EditSkillComponent },
+    ],
+  },
+  {
+    path: "users",
+    component: UsersComponent,
+    children: [{ path: ":id", component: UserComponent }], // nested routes
+  },
   { path: "github", component: GithubComponent },
   { path: "**", component: NotfoundComponent },
 ];
@@ -31,6 +45,9 @@ const appRoutes: Routes = [
     GithubComponent,
     NotfoundComponent,
     SkillComponent,
+    EditSkillComponent,
+    UsersComponent,
+    UserComponent,
   ],
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), HttpClientModule], // RouterModule and method here forRoot
   providers: [],
