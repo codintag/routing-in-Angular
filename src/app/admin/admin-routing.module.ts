@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuard } from '../services/auth-guard.service';
 import { AdminCategoriesComponent } from "./admin-categories/admin-categories.component";
 import { AdminSkillsComponent } from "./admin-skills/admin-skills.component";
 import { AdminComponent } from "./admin/admin.component";
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: "",
+        canActivate:[AuthGuard], //add Auth Guard
         children: [
           { path: "skills", component: AdminSkillsComponent },
           { path: "categories", component: AdminCategoriesComponent },
