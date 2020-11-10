@@ -15,6 +15,7 @@ import { EditSkillComponent } from "./skils/edit-skill/edit-skill.component";
 import { UsersComponent } from "./users/users.component";
 import { UserComponent } from "./users/user/user.component";
 import { AppRoutingModule } from './app-routing.module';
+import { AdminModule } from './admin/admin.module';
 
 // // all my routes here stored in const
 // const appRoutes: Routes = [
@@ -50,7 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
     UsersComponent,
     UserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule], // RouterModule and method here forRoot
+  imports: [BrowserModule, AdminModule, AppRoutingModule, HttpClientModule], // RouterModule and method here forRoot
   providers: [],
   bootstrap: [AppComponent],
 })
